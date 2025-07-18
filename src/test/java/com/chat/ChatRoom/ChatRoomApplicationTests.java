@@ -1,4 +1,4 @@
-package com.raksh.ChatRoom;
+package com.chat.ChatRoom;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

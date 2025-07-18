@@ -1,4 +1,4 @@
-package com.raksh.ChatRoom.model;
+package com.chat.ChatRoom.model;
 
 public enum MessageType {
     CHAT,

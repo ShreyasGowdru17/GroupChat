@@ -1,11 +1,10 @@
-package com.raksh.ChatRoom.Config;
+package com.chat.ChatRoom.Config;
 
-import com.raksh.ChatRoom.model.ChatMessage;
-import com.raksh.ChatRoom.model.MessageType;
+import com.chat.ChatRoom.model.ChatMessage;
+import com.chat.ChatRoom.model.MessageType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
-import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
