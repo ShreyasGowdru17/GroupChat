@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+push-notifications-firebase.json
+.env

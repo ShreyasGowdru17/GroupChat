@@ -2,6 +2,7 @@ package com.chat.ChatRoom.Config;
 
 import com.chat.ChatRoom.model.ChatMessage;
 import com.chat.ChatRoom.model.MessageType;
+import com.chat.ChatRoom.service.FCMService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -16,6 +17,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 public class WebSocketEventListener {
 
     private final SimpMessageSendingOperations messageTemplate;
+    private final FCMService fcmService;
 
     @EventListener
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event){
@@ -23,6 +25,9 @@ public class WebSocketEventListener {
             String username=(String)headerAccessor.getSessionAttributes().get("username");
             if(username!=null){
                 log.info("User disconnected:{}",username);
+
+                fcmService.sendUserLeftNotificationToOfflineUsers(username);
+
                 var chatMessage= ChatMessage.builder()
                         .type(MessageType.LEAVE)
                         .sender(username)
